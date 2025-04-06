@@ -1,0 +1,133 @@
+/* Estilo general inspirado en interfaz de consola */
+.container {
+    max-width: 1200px;
+    background-color: #121212;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    font-family: 'Arial', sans-serif;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+  }
+  
+  h2 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--neon-cyan);
+    text-shadow: 0 0 10px rgba(0, 255, 252, 0.3);
+    letter-spacing: 1px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+  }
+  
+  
+  h2::after {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #00fffc, #0084ff);
+    margin: 10px auto;
+  }
+  
+  /* ---- Cards estilo "HUD de juego" ---- */
+  .card {
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .card-header {
+    background: linear-gradient(135deg, #0066ff 0%, #003087 100%); /* Azul PlayStation */
+    color: white;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-bottom: 2px solid #00fffc;
+  }
+  
+  /* ---- Formulario estilo "Menú de configuración" ---- */
+  .form-control {
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    color: #fff;
+    border-radius: 4px;
+  }
+  
+  .form-control:focus {
+    background-color: #333;
+    border-color: #00fffc;
+    box-shadow: 0 0 0 0.25rem rgba(0, 255, 252, 0.25);
+  }
+  
+  .form-label {
+    color: #aaa;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  /* ---- Tabla estilo "Leaderboard" ---- */
+  .table th {
+    background: linear-gradient(135deg, #003087 0%, #001a4d 100%) !important;
+    color: white !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+    border-bottom: 2px solid #00fffc !important;
+  }
+  
+  .table td {
+    background-color: #535353 !important; /* Gris oscuro para celdas */
+    border-top: 1px solid #383838 !important;
+    vertical-align: middle;
+  }
+  
+  .table-striped tbody tr:nth-of-type(odd) td {
+    background-color: #818080 !important; /* Gris un poco más claro para filas alternas */
+  }
+  
+  .table-hover tbody tr:hover td {
+    background-color: #3a3a3a !important; /* Gris más claro al hacer hover */
+    color: #00fffc !important;
+  }
+    
+  
+  /* ---- Botones con temática de consolas ---- */
+  .btn-primary {
+    background: linear-gradient(135deg, #107c10 0%, #0e5a0e 100%); /* Verde Xbox */
+    border: none;
+    font-weight: bold;
+  }
+  
+  .btn-warning {
+    background: linear-gradient(135deg, #18eef5 0%, #0b29d4 100%);
+    border: none;
+    font-weight: bold;
+  }
+  
+  .btn-danger {
+    background: linear-gradient(135deg, #e50914 0%, #b00710 100%); /* Rojo PlayStation */
+    border: none;
+    font-weight: bold;
+  }
+  
+  .btn-secondary {
+    background: linear-gradient(135deg, #555 0%, #333 100%);
+    border: none;
+  }
+  
+  /* Efectos hover para botones */
+  .btn:hover {
+    filter: brightness(110%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+
+  

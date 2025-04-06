@@ -1,0 +1,125 @@
+/* Estilo base del navbar */
+.navbar {
+    background: linear-gradient(135deg, #121212 0%, #1a1a1a 100%) !important;
+    border-bottom: 2px solid #00fffc;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+    padding: 0.5rem 1rem;
+  }
+  
+  /* Logo/Marca */
+  .navbar-brand {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #00fffc !important;
+    text-shadow: 0 0 10px rgba(0, 255, 252, 0.5);
+    letter-spacing: 2px;
+    margin-right: 2rem;
+    transition: all 0.3s;
+  }
+  
+  .navbar-brand:hover {
+    text-shadow: 0 0 15px rgba(0, 255, 252, 0.8);
+  }
+  
+  /* Items del menú */
+  .nav-link {
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 600;
+    color: #aaa !important;
+    margin: 0 10px;
+    padding: 8px 15px !important;
+    border-radius: 4px;
+    transition: all 0.3s;
+    position: relative;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+  }
+  
+  .nav-link:hover {
+    color: white !important;
+    background: rgba(0, 255, 252, 0.1);
+  }
+  
+  .nav-link.active {
+    color: #00fffc !important;
+  }
+  
+  /* Efecto neon para items activos/hover */
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: #00fffc;
+    transition: width 0.3s;
+  }
+  
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    width: 70%;
+  }
+  
+  /* Botón de cerrar sesión */
+  .nav-link button {
+    background: transparent;
+    border: none;
+    color: #ff3366 !important;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 0;
+  }
+  
+  .nav-link button:hover {
+    color: #ff0066 !important;
+    text-shadow: 0 0 8px rgba(255, 0, 102, 0.5);
+  }
+  
+  /* Botón toggle para móviles */
+  .navbar-toggler {
+    border: 1px solid #00fffc !important;
+  }
+  
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 255, 252, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+  
+  /* Menú desplegable en móviles */
+  .navbar-collapse {
+    background-color: #1a1a1a;
+    padding: 15px;
+    border-radius: 0 0 8px 8px;
+    border: 1px solid #333;
+    border-top: none;
+  }
+  
+  /* Responsive */
+  @media (max-width: 992px) {
+    .navbar-nav {
+      padding-top: 15px;
+    }
+    
+    .nav-link {
+      margin: 5px 0;
+      padding: 10px !important;
+    }
+    
+    .nav-link::after {
+      bottom: 0;
+      left: 0;
+      transform: none;
+      width: 0;
+      height: 100%;
+      background: rgba(0, 255, 252, 0.2);
+      z-index: -1;
+    }
+    
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+  }

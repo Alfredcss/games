@@ -1,0 +1,140 @@
+/* Contenedor principal */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  /* Títulos */
+  h2 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--neon-cyan);
+    text-shadow: 0 0 10px rgba(0, 255, 252, 0.3);
+    letter-spacing: 1px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+  }
+  
+  h2.text-center:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #00fffc, #0084ff);
+  }
+  
+  /* Cards */
+  .card {
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  }
+  
+  .card-header.bg-primary {
+    background: linear-gradient(135deg, #107c10 0%, #0e5a0e 100%); /* Verde Xbox */
+    color: white;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #00fffc;
+  }
+  
+  /* Formularios */
+  .form-control {
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    color: white;
+    border-radius: 4px;
+    padding: 10px;
+  }
+  
+  .form-control:focus {
+    border-color: #00fffc;
+    box-shadow: 0 0 0 0.25rem rgba(0, 255, 252, 0.25);
+    background-color: #333;
+  }
+  
+ /* Tablas - Fondo gris oscuro */
+.table {
+  color: white !important;
+  background-color: #2a2a2a !important; /* Gris oscuro para el fondo de la tabla */
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table th {
+  background: linear-gradient(135deg, #003087 0%, #001a4d 100%) !important;
+  color: white !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.8rem;
+  border-bottom: 2px solid #00fffc !important;
+}
+
+.table td {
+  background-color: #535353 !important; /* Gris oscuro para celdas */
+  border-top: 1px solid #383838 !important;
+  vertical-align: middle;
+}
+
+.table-striped tbody tr:nth-of-type(odd) td {
+  background-color: #818080 !important; /* Gris un poco más claro para filas alternas */
+}
+
+.table-hover tbody tr:hover td {
+  background-color: #3a3a3a !important; /* Gris más claro al hacer hover */
+  color: #00fffc !important;
+}
+  
+  /* Botones */
+  .btn-primary {
+    background: linear-gradient(135deg, #107c10 0%, #0e5a0e 100%);
+    border: none;
+  }
+  
+  .btn-warning {
+    background: linear-gradient(135deg, #a8f518 0%, #0bd458 100%);
+    border: none;
+    color: black;
+  }
+  
+  .btn-danger {
+    background: linear-gradient(135deg, #e50914 0%, #b00710 100%);
+    border: none;
+  }
+  
+  .btn:hover {
+    filter: brightness(110%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Alertas */
+  .alert-info {
+    background: rgba(0, 120, 215, 0.1);
+    border-color: rgba(0, 120, 215, 0.3);
+    color: #00fffc;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .container {
+      padding: 15px;
+    }
+    
+    .card {
+      margin-bottom: 15px;
+    }
+  }

@@ -1,0 +1,89 @@
+<app-menu></app-menu>
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Gestión de Desarrolladores</h2>
+  
+    <!-- Formulario para agregar/editar -->
+    <div class="card mb-4">
+      <div class="card-header bg-primary text-white">
+        {{ desarrollador.id ? 'Editar Desarrollador' : 'Agregar Nuevo Desarrollador' }}
+      </div>
+      <div class="card-body">
+        <form (ngSubmit)="desarrollador.id ? updateDesarrollador() : insertarDesarrollador()" #devForm="ngForm">
+          <div class="row g-3">
+            <div class="col-md-4">
+              <label for="nombre" class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="nombre" 
+                     [(ngModel)]="desarrollador.nombre" name="nombre" required>
+            </div>
+            <div class="col-md-4">
+              <label for="pais" class="form-label">País</label>
+              <input type="text" class="form-control" id="pais" 
+                     [(ngModel)]="desarrollador.pais" name="pais" required>
+            </div>
+            <div class="col-md-4">
+              <label for="anio" class="form-label">Año de Fundación</label>
+              <input type="number" class="form-control" id="anio" 
+                     [(ngModel)]="desarrollador.anioFundacion" name="anioFundacion" 
+                     min="1900" [max]="currentYear" required>
+            </div>
+          </div>
+          
+          <div class="mt-3">
+            <button type="submit" class="btn btn-primary me-2">
+              {{ desarrollador.id ? 'Actualizar' : 'Guardar' }}
+            </button>
+            <button type="button" class="btn btn-secondary" 
+                    *ngIf="desarrollador.id" (click)="cancelarEdicion()">
+              Cancelar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  
+    <!-- Lista de desarrolladores -->
+    <div class="card">
+      <div class="card-header bg-dark text-white">
+        Lista de Desarrolladores
+      </div>
+      <div class="card-body">
+        <div *ngIf="cargando" class="text-center">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Cargando...</span>
+          </div>
+        </div>
+  
+        <div *ngIf="!cargando && desarrolladores.length === 0" class="alert alert-info">
+          No hay desarrolladores registrados
+        </div>
+  
+        <div *ngIf="!cargando && desarrolladores.length > 0" class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>País</th>
+                <th>Año Fundación</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let dev of desarrolladores">
+                <td>{{ dev.nombre }}</td>
+                <td>{{ dev.pais }}</td>
+                <td>{{ dev.anioFundacion }}</td>
+                <td>
+                  <button class="btn btn-sm btn-warning me-2" (click)="selectDesarrollador(dev)">
+                    Editar
+                  </button>
+                  <button class="btn btn-sm btn-danger" (click)="deleteDesarrollador(dev.id || '')">
+                    Eliminar
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>

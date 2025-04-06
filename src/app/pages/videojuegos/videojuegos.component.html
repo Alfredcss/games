@@ -1,0 +1,113 @@
+<app-menu></app-menu>
+
+<div class="container mt-4">
+  <h2>Administración de Videojuegos</h2>
+
+  <!-- Formulario para agregar/editar -->
+  <div class="card mb-4">
+    <div class="card-header">
+      {{ editando ? 'Editar Videojuego' : 'Agregar Nuevo Videojuego' }}
+    </div>
+    <div class="card-body">
+      <form (submit)="editando ? actualizarVideojuego() : agregarVideojuego()">
+        <div class="mb-3">
+          <label for="titulo" class="form-label">Título</label>
+          <input type="text" class="form-control" id="titulo" 
+                 [(ngModel)]="nuevoVideojuego.titulo" name="titulo" required>
+        </div>
+        
+        <div class="mb-3">
+          <label for="genero" class="form-label">Género</label>
+          <input type="text" class="form-control" id="genero" 
+                 [(ngModel)]="nuevoVideojuego.genero" name="genero" required>
+        </div>
+        
+        <div class="mb-3">
+          <label for="lanzamiento" class="form-label">Año de Lanzamiento</label>
+          <input type="number" class="form-control" id="lanzamiento" 
+                 [(ngModel)]="nuevoVideojuego.lanzamiento" name="lanzamiento" 
+                 min="1950" [max]="currentYear" required>
+        </div>
+        
+        <div class="mb-3">
+          <label for="precio" class="form-label">Precio</label>
+          <input type="number" class="form-control" id="precio" 
+                 [(ngModel)]="nuevoVideojuego.precio" name="precio" 
+                 min="0" step="0.01" required>
+        </div>
+        
+        <div class="mb-3">
+          <label for="desarrolladorId" class="form-label">Desarrollador</label>
+          <select class="form-select" id="desarrolladorId" 
+                  [(ngModel)]="nuevoVideojuego.desarrolladorId" name="desarrolladorId" required>
+            <option value="">Seleccione un desarrollador</option>
+            <option *ngFor="let dev of desarrolladores" [value]="dev.id">
+              {{ dev.nombre }}
+            </option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary me-2">
+          {{ editando ? 'Actualizar' : 'Agregar' }}
+        </button>
+        <button type="button" class="btn btn-secondary" 
+                *ngIf="editando" (click)="cancelarEdicion()">
+          Cancelar
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Filtro -->
+  <div class="row mb-3">
+    <div class="col-md-4">
+      <select class="form-select" [(ngModel)]="filtroDesarrollador" 
+              (ngModelChange)="filtrarPorDesarrollador($event)">
+        <option value="">Todos los desarrolladores</option>
+        <option *ngFor="let dev of desarrolladores" [value]="dev.id">
+          {{ dev.nombre }}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Lista de videojuegos -->
+  <div class="card">
+    <div class="card-header">
+      Lista de Videojuegos
+    </div>
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Título</th>
+            <th>Género</th>
+            <th>Lanzamiento</th>
+            <th>Precio</th>
+            <th>Desarrollador</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let videojuego of videojuegos">
+            <td>{{ videojuego.titulo }}</td>
+            <td>{{ videojuego.genero }}</td>
+            <td>{{ videojuego.lanzamiento }}</td>
+            <td>{{ videojuego.precio | currency }}</td>
+            <td>{{ videojuego.desarrolladorNombre }}</td>
+            <td>
+              <button class="btn btn-sm btn-warning me-2" 
+                      (click)="editarVideojuego(videojuego)">
+                Editar
+              </button>
+              <button class="btn btn-sm btn-danger" 
+                      (click)="eliminarVideojuego(videojuego.id!)">
+                Eliminar
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
